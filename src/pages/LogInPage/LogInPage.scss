@@ -1,0 +1,23 @@
+.LogInPage {
+
+  &__bgImage {
+    position: absolute;
+  }
+
+  &__wave {
+    bottom: 0;
+    width: 100%;
+  }
+
+  &__apps {
+    bottom: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+
+body {
+  background-color: var(--bg-color);
+  overflow-y: hidden;
+}
