@@ -1,0 +1,10 @@
+.LogInFooter {
+  &__link {
+    text-decoration: none;
+    color: #4285F4;
+
+    &:hover {
+      color: #f4604d;
+    }
+  }
+}

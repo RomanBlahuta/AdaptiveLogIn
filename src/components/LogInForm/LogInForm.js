@@ -10,21 +10,23 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles(() =>({
   LogInForm__container: {
-    zIndex: 3,
     textAlign: "center",
-    padding: "60px 150px",
+    padding: "81px 167px",
+    height: 667,
+    width: 500,
+    borderRadius: 10
   },
   LogInForm__input: {
-    width: "100%",
-    height: 30,
-    marginTop: 50,
+    width: 260,
+    height: 59,
+    marginBottom: 30,
     borderColor: "#B2B7BB",
     color: "#B2B7BB"
   },
   LogInForm__submit: {
     width: 212,
     height: 48,
-    marginTop: 120,
+    marginTop: 60,
     marginBottom: 16,
     background: "linear-gradient(90deg, #FF9146 0%, #FF351B 100%)",
     color: "#FEFEFE",
@@ -32,7 +34,9 @@ const useStyles = makeStyles(() =>({
   },
   LogInForm__caption: {
     fontSize: 30,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginBottom: 78,
+    marginTop: 81
   },
   LogInForm__visibility: {
     color: "#B2B7BB"
