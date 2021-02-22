@@ -7,6 +7,8 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from "@material-ui/core";
 import LogInFooter from "../LogInFooter";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { useForm, Controller } from "react-hook-form";
+import { useEffect, useRef, useState } from "react";
 
 const useStyles = makeStyles(() =>({
   LogInForm__container: {
@@ -37,59 +39,79 @@ const useStyles = makeStyles(() =>({
     fontWeight: "bold",
     marginBottom: 78,
     marginTop: 81
-  },
-  LogInForm__visibility: {
-    color: "#B2B7BB"
   }
 }));
 
 
 const LogInForm = () => {
 
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [visibilityIconColor, setVisibilityIconColor] = useState("#B2B7BB");
+
+  const { control, errors, handleSubmit } = useForm();
+
   const {LogInForm__container, LogInForm__submit, LogInForm__caption, LogInForm__input, LogInForm__visibility} = useStyles();
 
-  const handleSubmit = () => {
-
+  const onSubmit = () => {
+    alert(`Submitted!\nEmail: ${emailRef.current.value}\nPassword: ${passwordRef.current.value}`);
   }
 
-  const handleInput = () => {
-
-  }
-
+  useEffect(() => {
+    setVisibilityIconColor(errors.password ? "#f44336" : "#B2B7BB");
+  }, [errors]);
 
   return <div className="LogInForm">
     <Paper className={LogInForm__container}>
 
       <Typography variant="h5" className={LogInForm__caption}>LOGIN</Typography>
 
-      <form className="LogInForm__form" onSubmit={(event) => {
-        event.preventDefault();
-        alert("Click!");
-      }} >
+      <form className="LogInForm__form" onSubmit={handleSubmit(onSubmit)} >
 
         <div className="LogInForm__inputContainer">
-          <TextField
-            onClick={handleInput}
-            label="Email Address"
-            type="email"
-            variant="outlined"
-            className={LogInForm__input}
+          <Controller name="email"
+            as={(<TextField
+              inputRef={emailRef}
+              label="Email Address"
+              type="email"
+              variant="outlined"
+              className={LogInForm__input}
+              id="email"
+              error={errors.email}
+              helperText={errors.email ? "Email required" : ""}
+            />)}
+            control={control}
+            defaultValue=""
+            rules={{
+              required: true,
+              minLength: 1,
+            }}
           />
         </div>
         <div className="LogInForm__inputContainer">
-          <TextField
-            onClick={handleInput}
-            label="Password"
-            type="password"
-            variant="outlined"
-            className={LogInForm__input}
-            color="secondary"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment>
-                  <VisibilityOutlinedIcon className={LogInForm__visibility} />
-                </InputAdornment>
-              )
+          <Controller name="password"
+            as={(<TextField
+              inputRef={passwordRef}
+              label="Password"
+              type="password"
+              variant="outlined"
+              className={LogInForm__input}
+              error={errors.password}
+              helperText={errors.password ? "Password required" : ""}
+              id="password"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment>
+                    <VisibilityOutlinedIcon style={{color: visibilityIconColor}} />
+                  </InputAdornment>
+                )
+              }}
+            />)}
+            control={control}
+            defaultValue=""
+            rules={{
+              required: true,
+              minLength: 1,
             }}
           />
         </div>
