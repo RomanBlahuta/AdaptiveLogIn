@@ -54,14 +54,80 @@ const Background = ({ size }) => {
     }
     else if (size === "sm") {
       return <div>
-        <img src={Plus} style={{}} />
-        <img src={Plus} style={{}} />
-        <img src={Spring} style={{}} />
-        <img src={Spring} style={{}} />
+        <img src={Plus} style={{
+          position: "absolute",
+          height: 42.00000059763817,
+          width: 49.00000069724453,
+          left: "85.16%",
+          right: "8.46%",
+          zIndex: 3,
+          top: "9.35%",
+          bottom: "86.55%",
+          transform: "rotate(315deg)"
+        }} />
+        <img src={Plus} style={{
+          position: "absolute",
+          left: "1.43%",
+          right: "85.94%",
+          zIndex: 3,
+          top: "54.1%",
+          bottom: "37.79%",
+          width: 97,
+          height: 83
+        }} />
+        <img src={Spring} style={{
+          height: 134.2437757263751,
+          width: 146.96359396595324,
+          position: "absolute",
+          left: "4.56%",
+          right: "76.31%",
+          zIndex: 3,
+          top: "6.52%",
+          bottom: "80.37%"
+        }} />
+        <img src={Spring} style={{
+          height: 141.75955200195312,
+          width: 117.02105712890625,
+          position: "absolute",
+          left: "84.77%",
+          right: "0%",
+          zIndex: 3,
+          top: "67.95%",
+          bottom: "18.21%",
+          transform: "rotate(180deg) scaleX(-1)"
+        }} />
 
-        <img src={Notes} style={{}} />
-        <img src={Weather} style={{}} />
-        <img src={Gallery} style={{}} />
+        <img src={Notes} style={{
+          position: "absolute",
+          zIndex: 3,
+          left: "1.43%",
+          right: "77.73%",
+          top: "85.78%",
+          bottom: "2.3%",
+          height: 122.0000005124631,
+          width: 160.00000067208276
+        }} />
+        <img src={Weather} style={{
+          zIndex: 3,
+          position: "absolute",
+          left: "41.83%",
+          right: "31.21%",
+          top: "81%",
+          bottom: "5.29%",
+          height: 179.78070474579295,
+          width: 184.0108531568041
+
+        }} />
+        <img src={Gallery} style={{
+          zIndex: 3,
+          position: "absolute",
+          left: "79.6%",
+          right: "0.9%",
+          top: "81.3%",
+          bottom: "3.04%",
+          height: 180.90681317050712,
+          width: 149.75729253835055
+        }} />
       </div>
     }
     else {
