@@ -12,6 +12,7 @@ const useStyles = makeStyles(() => ({
 
 const LogInFooter = () => {
     const { LogInFooter__text } = useStyles();
+
     return (
         <div className="LogInFooter">
             <Typography variant="h6" className={LogInFooter__text}>

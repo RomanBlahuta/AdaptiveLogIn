@@ -1,4 +1,3 @@
-import './LogInForm.scss';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';

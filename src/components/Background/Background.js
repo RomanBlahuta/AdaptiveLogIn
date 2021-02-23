@@ -1,4 +1,3 @@
-import './Background.scss';
 import { alts, IPadMiniViewPort, IPhone8Viewport } from '../../util/consts';
 import { makeStyles, useMediaQuery } from '@material-ui/core';
 import { useEffect, useState } from 'react';

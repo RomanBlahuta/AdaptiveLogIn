@@ -1,5 +1,5 @@
 import './Apps.scss';
-import { AppSizes } from '../../util/consts';
+import { alts, AppSizes } from "../../util/consts";
 import { useEffect, useState } from 'react';
 
 const Apps = ({ size }) => {
@@ -11,7 +11,7 @@ const Apps = ({ size }) => {
 
     return (
         <div className="Apps">
-            <img src={source} className="Apps__bgImage Apps__apps" />
+            <img alt={alts.apps} src={source} className="Apps__bgImage Apps__apps" />
         </div>
     );
 };

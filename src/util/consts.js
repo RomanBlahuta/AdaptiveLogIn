@@ -40,4 +40,6 @@ export const alts = {
     gallery: 'gallery.svg',
     notes: 'notes.svg',
     weather: 'weather.svg',
+    apps: 'apps.svg',
+    wave: 'wave.svg'
 };
