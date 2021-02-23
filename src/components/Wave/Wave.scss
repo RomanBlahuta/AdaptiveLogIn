@@ -1,11 +1,11 @@
 .Wave {
-  &__bgImage {
-    position: absolute;
-  }
+    &__bgImage {
+        position: absolute;
+    }
 
-  &__wave {
-    bottom: 0;
-    width: 100%;
-    z-index: 0;
-  }
+    &__wave {
+        bottom: 0;
+        width: 100%;
+        z-index: 0;
+    }
 }
