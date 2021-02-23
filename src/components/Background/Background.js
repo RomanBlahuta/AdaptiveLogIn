@@ -133,9 +133,38 @@ const Background = ({ size }) => {
     else {
       return <div>
 
-        <img src={Plus} style={{}} />
-        <img src={Spring} style={{}} />
-        <img src={Spring} style={{}} />
+        <img src={Plus} style={{
+          position: "absolute",
+          left: "24.57%",
+          right: "59.21%",
+          top: "91.75%",
+          bottom: "0.82%",
+          transform: "matrix(-0.55, 0.83, -0.84, -0.55, 0, 0)",
+          height: 49.55909086533332,
+          width: 60.817812400857946
+        }} />
+        <img src={Spring} style={{
+          height: 62.61610721787466,
+          width: 68.47623252952742,
+          position: "absolute",
+          left: "7.53%",
+          right: "74.21%",
+          top: "5.58%",
+          bottom: "85.03%",
+          filter: "drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25))",
+          transform: "matrix(0.84, -0.54, 0.54, 0.84, 0, 0)"
+        }} />
+        <img src={Spring} style={{
+          position: "absolute",
+          left: "100.37%",
+          right: "-17.88%",
+          top: "93.42%",
+          bottom: "-5.91%",
+          filter: "drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25))",
+          transform: "matrix(-0.47, -0.88, -0.88, 0.48, 0, 0)",
+          height: 83.29829419431954,
+          width: 65.6422266768968
+        }} />
       </div>
     }
   }
