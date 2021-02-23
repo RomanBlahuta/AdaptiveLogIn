@@ -4,19 +4,38 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper';
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, useMediaQuery } from "@material-ui/core";
 import LogInFooter from "../LogInFooter";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { useForm, Controller } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
+import { IPadMiniViewPort, IPhone8Viewport } from "../../util/consts";
 
 const useStyles = makeStyles(() =>({
   LogInForm__container: {
     textAlign: "center",
-    padding: "81px 167px",
-    height: 667,
-    width: 500,
-    borderRadius: 10
+    borderRadius: 10,
+    zIndex: 5
+  },
+  LogInForm__containerLg: {
+    width: 566,
+    height: 626,
+    marginRight: 32
+  },
+  LogInForm__containerMd: {
+    width: 488,
+    height: 626,
+    marginRight: 32
+  },
+  LogInForm__containerSm: {
+    width: 548,
+    height: 626,
+    margin: "auto"
+  },
+  LogInForm__containerXs: {
+    width: 343,
+    height: 488,
+    margin: "auto"
   },
   LogInForm__input: {
     width: 260,
@@ -45,13 +64,18 @@ const useStyles = makeStyles(() =>({
 
 const LogInForm = () => {
 
+  const {LogInForm__container, LogInForm__submit, LogInForm__caption, LogInForm__input, LogInForm__containerLg, LogInForm__containerMd, LogInForm__containerSm, LogInForm__containerXs} = useStyles();
+
+  const lg = useMediaQuery(`(min-width: ${IPadMiniViewPort.horizontal.width + 1}px)`);
+  const md = useMediaQuery(`(min-width: ${IPadMiniViewPort.vertical.width + 1}px) and (max-width: ${IPadMiniViewPort.horizontal.width}px)`)
+  const sm = useMediaQuery(`(min-width: ${IPhone8Viewport.width + 1}px) and (max-width: ${IPadMiniViewPort.vertical.width}px)`)
+  const xs = useMediaQuery(`(max-width: ${IPhone8Viewport.width}px)`)
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const [visibilityIconColor, setVisibilityIconColor] = useState("#B2B7BB");
 
   const { control, errors, handleSubmit } = useForm();
-
-  const {LogInForm__container, LogInForm__submit, LogInForm__caption, LogInForm__input, LogInForm__visibility} = useStyles();
 
   const onSubmit = () => {
     alert(`Submitted!\nEmail: ${emailRef.current.value}\nPassword: ${passwordRef.current.value}`);
@@ -61,8 +85,7 @@ const LogInForm = () => {
     setVisibilityIconColor(errors.password ? "#f44336" : "#B2B7BB");
   }, [errors]);
 
-  return <div className="LogInForm">
-    <Paper className={LogInForm__container}>
+  return <Paper className={`${LogInForm__container}${lg ? " " + LogInForm__containerLg : ""}${md ? " " + LogInForm__containerMd : ""}${sm ? " " + LogInForm__containerSm : ""}${xs ? " " + LogInForm__containerXs : ""}`}>
 
       <Typography variant="h5" className={LogInForm__caption}>LOGIN</Typography>
 
@@ -77,7 +100,7 @@ const LogInForm = () => {
               variant="outlined"
               className={LogInForm__input}
               id="email"
-              error={errors.email}
+              error={Boolean(errors.email)}
               helperText={errors.email ? "Email required" : ""}
             />)}
             control={control}
@@ -96,7 +119,7 @@ const LogInForm = () => {
               type="password"
               variant="outlined"
               className={LogInForm__input}
-              error={errors.password}
+              error={Boolean(errors.password)}
               helperText={errors.password ? "Password required" : ""}
               id="password"
               InputProps={{
@@ -117,7 +140,7 @@ const LogInForm = () => {
         </div>
 
         <div className="LogInForm__inputContainer">
-          <Button classes={{root: LogInForm__submit}} type="submit" variant="contained">LOG IN</Button>
+          <Button disabled={Boolean(errors.email) || Boolean(errors.password)} classes={{root: LogInForm__submit}} type="submit" variant="contained">LOG IN</Button>
         </div>
 
       </form>
@@ -125,7 +148,6 @@ const LogInForm = () => {
       <LogInFooter />
 
     </Paper>
-  </div>
 }
 
 export default LogInForm;
