@@ -35,9 +35,9 @@ export const AppSizes = {
 };
 
 export const alts = {
-    spring: "spring.svg",
-    plus: "plus.svg",
-    gallery: "gallery.svg",
-    notes: "notes.svg",
-    weather: "weather.svg"
-}
+    spring: 'spring.svg',
+    plus: 'plus.svg',
+    gallery: 'gallery.svg',
+    notes: 'notes.svg',
+    weather: 'weather.svg',
+};

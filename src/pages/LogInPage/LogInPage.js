@@ -3,7 +3,6 @@ import LogInForm from '../../components/LogInForm';
 import Background from '../../components/Background';
 
 function LogInPage() {
-
     return (
         <div className="LogInPage">
             <div className="LogInPage__formContainer">
