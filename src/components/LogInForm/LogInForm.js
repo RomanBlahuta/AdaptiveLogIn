@@ -8,7 +8,7 @@ import { makeStyles, useMediaQuery } from "@material-ui/core";
 import LogInFooter from "../LogInFooter";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { useForm, Controller } from "react-hook-form";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { IPadMiniViewPort, IPhone8Viewport } from "../../util/consts";
 
 const useStyles = makeStyles(() =>({
@@ -73,17 +73,12 @@ const LogInForm = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const [visibilityIconColor, setVisibilityIconColor] = useState("#B2B7BB");
 
   const { control, errors, handleSubmit } = useForm();
 
   const onSubmit = () => {
     alert(`Submitted!\nEmail: ${emailRef.current.value}\nPassword: ${passwordRef.current.value}`);
   }
-
-  useEffect(() => {
-    setVisibilityIconColor(errors.password ? "#f44336" : "#B2B7BB");
-  }, [errors]);
 
   return <Paper className={`${LogInForm__container}${lg ? " " + LogInForm__containerLg : ""}${md ? " " + LogInForm__containerMd : ""}${sm ? " " + LogInForm__containerSm : ""}${xs ? " " + LogInForm__containerXs : ""}`}>
 
@@ -125,7 +120,7 @@ const LogInForm = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment>
-                    <VisibilityOutlinedIcon style={{color: visibilityIconColor}} />
+                    <VisibilityOutlinedIcon style={{color: (errors.password ? "#f44336" : "#B2B7BB")}} />
                   </InputAdornment>
                 )
               }}
@@ -140,7 +135,7 @@ const LogInForm = () => {
         </div>
 
         <div className="LogInForm__inputContainer">
-          <Button disabled={Boolean(errors.email) || Boolean(errors.password)} classes={{root: LogInForm__submit}} type="submit" variant="contained">LOG IN</Button>
+          <Button classes={{root: LogInForm__submit}} style={Boolean(errors.email) || Boolean(errors.password) ? {background: "#B2B7BB"} : {}} type="submit" variant="contained">LOG IN</Button>
         </div>
 
       </form>
