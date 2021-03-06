@@ -1,4 +1,4 @@
-# Fast Rewards Log In Test Task
+# Adaptive Log In Web Page
 
 This React app is a test task for a Junior Frontend Developer (React) at Fast Rewards.
 This project uses ReactJS, MaterialUI and prettier.
